@@ -29,7 +29,7 @@
 ## general
 - when picking between `"`  and `'` you must be consistent across the entire project
 - do not use redundant parentheses  
-  good: 
+  good:  
   ```lua
   if x == y then
   ```
@@ -51,17 +51,18 @@
 - complex expressions should be written on multiple lines with meaningful variable names
 - never use semicolons
 - don't redefine constants that already exist
+  bad:  
+  ```lua
+  x = y * 3.142
+  radians = deg * ( 3.142 / 180 )
+  ```
   good: 
   ```lua
   x = y * math.pi
   radians = math.rad( deg )
   ```
-  bad:
-  ```lua
-  x = y * 3.142
-  radians = deg * ( 3.142 / 180 )
-  ```
 - unnecessarilly long conditions should be avoided. conditions can be pulled out into meaningful variable names to  avoid this.
+- lines should be around 110 characters long at the most
 
 ## Numbers
 - dont define numbers like this `.69` instead do `0.69`
@@ -76,7 +77,7 @@
 
 ##  commenting
 - do not add useless comments, good variable and function names can make comments unecessary
-  bad:
+  bad:  
   ```lua
   for k, v in pairs(stuff) -- loop through stuff
       print(v) -- print v
