@@ -69,11 +69,11 @@
 - no leading 0s dont do `0420` instead do `420`
 - no trailing 0s dont do `0.200` instead do `0.2`
 
-# Gmod
-## naming hooks
-- hook identifiers should be named as such `Organization_AddonName_HookPurpose`
-- the hook event name should not be included in the identifier
-- hook event names should be named as such `Organization_EventName`
+## Gmod
+  ### naming hooks
+  - hook identifiers should be named as such `Organization_AddonName_HookPurpose`
+  - the hook event name should not be included in the identifier
+  - hook event names should be named as such `Organization_EventName`
 
 ##  commenting
 - do not add useless comments, good variable and function names can make comments unecessary. Strive for self commenting code.  
