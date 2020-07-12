@@ -76,7 +76,7 @@
 - hook event names should be named as such `Organization_EventName`
 
 ##  commenting
-- do not add useless comments, good variable and function names can make comments unecessary
+- do not add useless comments, good variable and function names can make comments unecessary. Strive for self commenting code.  
   bad:  
   ```lua
   for k, v in pairs(stuff) -- loop through stuff
