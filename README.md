@@ -23,6 +23,8 @@
 - constants should be SCREAMING_SNAKE
 - global variables should be written in PascalCase
 - methods for objects should be in PascalCase e.g. the Player and Entity classes
+- where possible table keys should only contain a-z A-Z 0-9 and \_.  they should not start with 0-9.
+- only use `_` as a variable to "throwaway" values that will not be used
 
 ## general
 - when picking between `"`  and `'` you must be consistent across the entire project
@@ -43,7 +45,6 @@
       key2 = y
   }
   ```
-  
 - multi line function calls should be written similarly 
 - returning early from a function is encouraged to avoid unnecessary scope
 - magic numbers should be pulled out into meaningful variables
@@ -60,7 +61,7 @@
   x = y * 3.142
   radians = deg * ( 3.142 / 180 )
   ```
-
+- unnecessarilly long conditions should be avoided. conditions can be pulled out into meaningful variable names to  avoid this.
 
 ## Numbers
 - dont define numbers like this `.69` instead do `0.69`
