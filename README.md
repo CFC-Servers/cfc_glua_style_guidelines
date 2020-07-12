@@ -74,3 +74,19 @@
 - the hook event name should not be included in the identifier
 - hook event names should be named as such `Organization_EventName`
 
+##  commenting
+- do not add useless comments, good variable and function names can make comments unecessary
+  bad:
+  ```lua
+  for k, v in pairs(stuff) -- loop through stuff
+      print(v) -- print v
+      if k == "u" then return end -- return on u
+  end
+  ```
+  good:
+  ```lua
+  for k, v in pairs(stuff)
+      print(v)
+      if k == "u" then return end
+  end
+  ```
