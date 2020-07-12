@@ -12,6 +12,7 @@
 - never have more than 2 newlines
 - top level blocks should have at least 1 newline between them
 - returns should have 1 newline before them
+- Code should be split into managable chunks using a single new line
 
 ## garry bad
 - operators added by gmod such as `&&` `||` `!` `!=` should never be used
