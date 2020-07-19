@@ -273,7 +273,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   end
 
   -- Bad
-  for _, ply in pairs( player.GetAll() ) do
+  for k, ply in pairs( player.GetAll() ) do
     local canKill, shouldKill = ply:GetKillData()
     if shouldKill then
       ply:Kill()
@@ -287,7 +287,6 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 
 ## general
 - When picking between `"`  and `'` you must be consistent across the entire project
-  Good:
   ```lua
   -- Good
   myFunc( "hello ", "world!" )
