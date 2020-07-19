@@ -51,13 +51,15 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local val = tab[ 5 ] + tab[ 3 ]
   local val2 = tab[ 5 * 3 ]
   ```
-- Single space after comment operators
+- Single space after comment operators and before if not at start of line
   ```lua
   -- Good
   -- This is a good comment
+  local a = 3 -- This is also good
   
   -- Bad
   --This comment is too close to the operator
+  local a = 3-- This comment starts too close to the 3
   ```
 
 ## Newlines
@@ -186,16 +188,16 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 - GMod style comments should never be used `/* */` and `//`
   ```lua
   -- Good
-  /*
-    This line does stuff
-  */
-  do( stuff ) // Stuff being done
-
-  -- Bad
   --[[
     This line does stuff
   ]]
   do( stuff ) -- Stuff being done
+
+  -- Bad
+  /*
+    This line does stuff
+  */
+  do( stuff ) // Stuff being done
   ```
 - The use of continue should be avoided if possible
   ```lua
