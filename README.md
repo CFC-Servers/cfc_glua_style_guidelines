@@ -350,13 +350,15 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 - Complex expressions should be written on multiple lines with meaningful variable names
   ```lua
-  -- Good
-  local gridX = idx % itemsPerColumn
-  local offset = ( outerWidth - innerWidth ) * 0.5
-  local panelX = x + offset + gridX * gridSize
+   -- Good
+  local widthModifier = amount * damageMult
+  local age = 1 - lifetime / duration
+  local width = widthModifier * age
 
   -- Bad
-  local panelX = x + ( outerWidth - innerWidth ) * 0.5 + ( idx % itemsPerColumn ) * gridSize
+  local width = (amount * 5) * (1 - lifetime / duration)
+
+
   ```
 - Never use semicolons
   ```lua
