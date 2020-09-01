@@ -210,7 +210,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 
 # Gmod lua additions
-## Operators added by gmod such as `&&` `||` `!` `!=` should never be used
+## Do not use GMod operators such as `&&` `||` `!` `!=`
 
   **Good**
   ```lua
@@ -297,7 +297,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   globalVariable = 20
   global_variable = 20
   ```
-## Methods for objects should be in PascalCase (e.g. the Player and Entity classes)
+## Methods for objects should be in PascalCase
 
   **Good**
   ```lua
@@ -310,7 +310,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   function classTable:setHealth( amount )
   end
   ```
-## Where possible, table keys should only contain `a-z A-Z 0-9` and `\_.`  they should not start with `0-9`.
+## Table keys
+### Where possible, table keys should only contain `a-z A-Z 0-9` and `\_.`  they should not start with `0-9`.
 
   **Good**
   ```lua
@@ -373,7 +374,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   if (x == y) then
   ```
 
-## When writing a multiline table, elements should begin on the next line and the last line should contain only a closing bracket. Elements inside should be indented once.
+## Multiline tables
+### Elements should begin on the next line and the last line should contain only a closing bracket. Elements inside should be indented once.
   ```lua
   tbl = {
       key = x,
@@ -388,7 +390,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       { third, arg }
   )
   ```
-## Returning early from a function is encouraged to avoid unnecessary scope
+## Return early from functions
 
   **Good**
   ```lua
@@ -418,7 +420,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   end
   ```
 
-  **Bad, the significance of "25" is unknown without a meaningful variable name**
+  **Bad, the significance of `25` is unknown without a meaningful variable name**
   ```lua
   function checkX( x )
       return x > 25
@@ -463,7 +465,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   x = y * 3.142
   radians = deg * ( 3.142 / 180 )
   ```
-## Unnecessarily long conditions should be avoided. Conditions can be pulled out into meaningful variable names to avoid this.
+## Unnecessarily long conditions should be avoided.
+### Conditions can be pulled out into meaningful variable names to avoid this.
 
   **Good, each check is clear and it's easy to follow the reasoning**
   ```lua
@@ -507,7 +510,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 - No trailing 0s, dont do `0.200` instead do `0.2`
 
 #  Commenting
-## Do not add useless comments, good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
+## Do not add useless comments
+### Good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
 
   **Good**
   ```lua
