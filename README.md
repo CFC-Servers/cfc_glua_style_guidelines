@@ -43,7 +43,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   if cond then
-    myFunc()
+      myFunc()
   end
   ```
 
@@ -89,7 +89,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 
 
   function GM:Think()
-    -- do thing
+      -- do thing
   end
   ```
 
@@ -100,7 +100,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 
 
   function GM:Think()
-    -- do thing
+      -- do thing
   end
   ```
 - Top level blocks should have either 1 or 2 newlines between them
@@ -111,7 +111,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 
 
   function GM:Think()
-    -- do thing
+      -- do thing
   end
   ```
 
@@ -119,7 +119,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   local config = GM.Config
   function GM:Think()
-    -- do thing
+      -- do thing
   end
   ```
 - Non top level blocks/lines should never have more than 1 newline between them
@@ -127,19 +127,19 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   function test()
-    local a = 3
+      local a = 3
 
-    print( a )
+      print( a )
   end
   ```
 
   **Bad**
   ```lua
   function test()
-    local a = 3
+      local a = 3
 
 
-    print( a )
+      print( a )
   end
   ```
 - Returns should have one newline before them unless the codeblock is only one line
@@ -147,21 +147,21 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   function test()
-    local a = 3
+      local a = 3
 
-    return a
+      return a
   end
 
   function test2()
-    return 3
+      return 3
   end
   ```
 
   **Bad**
   ```lua
   function test()
-    local a = 3
-    return a
+      local a = 3
+      return a
   end
   ```
 - Code should be split into managable chunks using a single new line
@@ -169,43 +169,43 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   function CFCNotifications.resolveFilter( filter )
-    if type( filter ) == "Player" then
-      filter = { filter }
-    end
+      if type( filter ) == "Player" then
+          filter = { filter }
+      end
 
-    if type( filter ) == "table" then
-      filter = fWrap( filter )
-    end
+      if type( filter ) == "table" then
+          filter = fWrap( filter )
+      end
 
-    filter = filter or player.GetAll
-    local players = filter()
+      filter = filter or player.GetAll
+      local players = filter()
 
-    if type( players ) == "Player" then
-      players = { players }
-    end
+      if type( players ) == "Player" then
+          players = { players }
+      end
 
-    if not players then players = player.GetAll() end
+      if not players then players = player.GetAll() end
 
-    return players
+      return players
   end
   ```
 
   **Bad, far too dense and difficult to read at a glance**
   ```lua
   function CFCNotifications.resolveFilter( filter )
-    if type( filter ) == "Player" then
-      filter = { filter }
-    end
-    if type( filter ) == "table" then
-      filter = fWrap( filter )
-    end
-    filter = filter or player.GetAll
-    local players = filter()
-    if type( players ) == "Player" then
-      players = { players }
-    end
-    if not players then players = player.GetAll() end
-    return players
+      if type( filter ) == "Player" then
+          filter = { filter }
+      end
+      if type( filter ) == "table" then
+          filter = fWrap( filter )
+      end
+      filter = filter or player.GetAll
+      local players = filter()
+      if type( players ) == "Player" then
+          players = { players }
+      end
+      if not players then players = player.GetAll() end
+      return players
   end
   ```
 
@@ -242,17 +242,17 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   for k, v in pairs( tab ) do
-    if IsValid( v ) then
-      v:Remove()
-    end
+      if IsValid( v ) then
+          v:Remove()
+      end
   end
   ```
 
   **Bad, garry's `continue` is a poor implementation that /might/ be prone to errors**
   ```lua
   for k, v in pairs( tab ) do
-    if not IsValid( v ) then continue end
-    v:Remove()
+      if not IsValid( v ) then continue end
+      v:Remove()
   end
   ```
 
@@ -325,22 +325,22 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   for _, ply in pairs( player.GetAll() ) do
-    local _, shouldKill = ply:GetKillData()
+      local _, shouldKill = ply:GetKillData()
 
-    if shouldKill then
-      ply:Kill()
-    end
+      if shouldKill then
+          ply:Kill()
+      end
   end
   ```
 
   **Bad, k isn't used**
   ```lua
   for k, ply in pairs( player.GetAll() ) do
-    local canKill, shouldKill = ply:GetKillData()
+      local canKill, shouldKill = ply:GetKillData()
 
-    if shouldKill then
-      ply:Kill()
-    end
+      if shouldKill then
+          ply:Kill()
+      end
   end
   ```
 - Hook naming:
@@ -382,9 +382,9 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 - Multi line function calls should be written similarly
   ```lua
   myFunc(
-    "First arg",
-    secondArg,
-    { third, arg }
+      "First arg",
+      secondArg,
+      { third, arg }
   )
   ```
 - Returning early from a function is encouraged to avoid unnecessary scope
@@ -392,18 +392,18 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   function test()
-    if not myThing then return end
+      if not myThing then return end
 
-    -- Do a bunch of real complicated things
+      -- Do a bunch of real complicated things
   end
   ```
 
   **Bad, adds an extra level of indentation**
   ```lua
   function test()
-    if myThing then
-      -- Do a bunch of real complicated things
-    end
+      if myThing then
+          -- Do a bunch of real complicated things
+      end
   end
   ```
 - Magic numbers should be pulled out into meaningful variables
@@ -413,14 +413,14 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local maxX = 25
 
   function checkX( x )
-    return x > maxX
+      return x > maxX
   end
   ```
 
   **Bad, the significance of "25" is unknown without a meaningful variable name**
   ```lua
   function checkX( x )
-    return x > 25
+      return x > 25
   end
   ```
 - Complex expressions should be written on multiple lines with meaningful variable names
@@ -472,7 +472,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local ownerCapable = entOwner:IsAdmin() or entOwner.canDoThing
 
   if entValid and ownerVehicleIsVisible and ownerCapable then
-    -- doThing
+      -- doThing
   end
   ```
 
@@ -480,7 +480,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   if IsValid( ent ) and ent:GetCPPIOwner():GetVehicle():GetColor().a > 0
     and ( ent:GetCPPIOwner():IsAdmin() or ent:GetCPPIOwner().canDoThing ) then
-    -- do thing
+      -- do thing
   end
   ```
 - Lines should be around 110 characters long at the most
@@ -488,10 +488,10 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   **Good**
   ```lua
   if IsValid( ent ) and ent:IsPlayer() and ent:IsAdmin() then
-    local hue = ( CurTime() * 10 ) % 360
-    local color = HSVToColor( hue, 1, 1 ) )
+      local hue = ( CurTime() * 10 ) % 360
+      local color = HSVToColor( hue, 1, 1 ) )
 
-    ent:SetColor( color )
+      ent:SetColor( color )
   end
   ```
 
