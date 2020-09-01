@@ -3,7 +3,7 @@
 The official CFC approved Glua styling guidelines as used on most of our repositories.
 
 ##  Spacing
-- Spaces around operators
+### Spaces around operators
 
   **Good**
   ```lua
@@ -14,7 +14,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   local x = a* b+c
   ```
-- Spaces inside parentheses and curly braces if they contain content
+### Spaces inside parentheses and curly braces if they contain content
 
   **Good**
   ```lua
@@ -27,7 +27,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local x = (3 * myFunc( )) + 5
   local data = {5, { }}
   ```
-- Spaces after commas
+### Spaces after commas
 
   **Good**
   ```lua
@@ -38,7 +38,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   myFunc( 10,{ 3,5 } )
   ```
-- Indentation should be done with 4 spaces
+### Indentation should be done with 4 spaces
 
   **Good**
   ```lua
@@ -53,7 +53,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
     myFunc()
   end
   ```
-- No spaces inside square brackets
+### No spaces inside square brackets
 
   **Good**
   ```lua
@@ -66,7 +66,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local val = tab[ 5 ] + tab[ 3 ]
   local val2 = tab[ 5 * 3 ]
   ```
-- Single space after comment operators and before if not at start of line
+### Single space after comment operators and before if not at start of line
 
   **Good**
   ```lua
@@ -81,7 +81,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 
 ## Newlines
-- Never have more than 2 newlines
+### Never have more than 2 newlines
 
   **Good**
   ```lua
@@ -103,7 +103,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       -- do thing
   end
   ```
-- Top level blocks should have either 1 or 2 newlines between them
+### Top level blocks should have either 1 or 2 newlines between them
 
   **Good**
   ```lua
@@ -122,7 +122,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       -- do thing
   end
   ```
-- Non top level blocks/lines should never have more than 1 newline between them
+### Non top level blocks/lines should never have more than 1 newline between them
 
   **Good**
   ```lua
@@ -142,7 +142,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       print( a )
   end
   ```
-- Returns should have one newline before them unless the codeblock is only one line
+### Returns should have one newline before them unless the codeblock is only one line
 
   **Good**
   ```lua
@@ -164,7 +164,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       return a
   end
   ```
-- Code should be split into managable chunks using a single new line
+### Code should be split into managable chunks using a single new line
 
   **Good**
   ```lua
@@ -210,7 +210,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 
 ## Gmod lua additions
-- Operators added by gmod such as `&&` `||` `!` `!=` should never be used
+### Operators added by gmod such as `&&` `||` `!` `!=` should never be used
 
   **Good**
   ```lua
@@ -221,7 +221,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   if a != b && !b then end
   ```
-- GMod style comments should never be used ( `/* */` and `//` )
+### GMod style comments should never be used ( `/* */` and `//` )
 
   **Good**
   ```lua
@@ -238,7 +238,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   */
   do( stuff ) // Stuff being done
   ```
-- The use of continue should be avoided if possible
+### The use of continue should be avoided if possible
 
   **Good**
   ```lua
@@ -258,7 +258,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 
 ## Naming conventions
-- Local variables and functions should always camelCase
+### Local variables and functions should always camelCase
 
   **Good**
   ```lua
@@ -270,7 +270,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local MyVariable = 10
   local my_variable = 20
   ```
-- Constants should be SCREAMING_SNAKE
+### Constants should be SCREAMING_SNAKE
 
   **Good**
   ```lua
@@ -285,7 +285,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   category_name = "nothing"
   local maximumValue = 25
   ```
-- Global variables should be written in PascalCase
+### Global variables should be written in PascalCase
 
   **Good**
   ```lua
@@ -297,7 +297,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   globalVariable = 20
   global_variable = 20
   ```
-- Methods for objects should be in PascalCase (e.g. the Player and Entity classes)
+### Methods for objects should be in PascalCase (e.g. the Player and Entity classes)
 
   **Good**
   ```lua
@@ -310,7 +310,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   function classTable:setHealth( amount )
   end
   ```
-- Where possible, table keys should only contain `a-z A-Z 0-9` and `\_.`  they should not start with `0-9`.
+### Where possible, table keys should only contain `a-z A-Z 0-9` and `\_.`  they should not start with `0-9`.
 
   **Good**
   ```lua
@@ -321,7 +321,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   myTable["my-value"] = 4
   ```
-- Only use `_` as a variable to "throwaway" values that will not be used
+### Only use `_` as a variable to "throwaway" values that will not be used
 
   **Good**
   ```lua
@@ -344,13 +344,13 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       end
   end
   ```
-- Hook naming:
+### Hook naming:
   - Hook identifiers should be named as such `Organization_AddonName_HookPurpose`
   - The hook event name should not be included in the identifier
   - Hook event names should be named as such `Organization_EventName`
 
 ## general
-- When picking between `"`  and `'` you must be consistent across the entire project
+### When picking between `"`  and `'` you must be consistent across the entire project
 
   **Good, quote usage is consistent**
   ```lua
@@ -361,7 +361,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   myFunc( "hello ", 'world!' )
   ```
-- Do not use redundant parentheses
+### Do not use redundant parentheses
 
   **Good**
   ```lua
@@ -373,14 +373,14 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   if (x == y) then
   ```
 
-- When writing a multiline table, elements should begin on the next line and the last line should contain only a closing bracket. Elements inside should be indented once.
+### When writing a multiline table, elements should begin on the next line and the last line should contain only a closing bracket. Elements inside should be indented once.
   ```lua
   tbl = {
       key = x,
       key2 = y
   }
   ```
-- Multi line function calls should be written similarly
+### Multi line function calls should be written similarly
   ```lua
   myFunc(
       "First arg",
@@ -388,7 +388,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       { third, arg }
   )
   ```
-- Returning early from a function is encouraged to avoid unnecessary scope
+### Returning early from a function is encouraged to avoid unnecessary scope
 
   **Good**
   ```lua
@@ -407,7 +407,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       end
   end
   ```
-- Magic numbers should be pulled out into meaningful variables
+### Magic numbers should be pulled out into meaningful variables
 
   **Good**
   ```lua
@@ -424,7 +424,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       return x > 25
   end
   ```
-- Complex expressions should be written on multiple lines with meaningful variable names
+### Complex expressions should be written on multiple lines with meaningful variable names
 
   **Good, each step of the equation is named and done individually. The math is easy to follow**
   ```lua
@@ -437,7 +437,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   local width = (amount * 5) * (1 - lifetime / duration)
   ```
-- Never use semicolons
+### Never use semicolons
 
   **Good**
   ```lua
@@ -449,7 +449,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   local a = 3; print( a )
   ```
-- Make use of existing constants where possible
+### Make use of existing constants where possible
 
   **Good**
   ```lua
@@ -463,7 +463,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   x = y * 3.142
   radians = deg * ( 3.142 / 180 )
   ```
-- Unnecessarily long conditions should be avoided. Conditions can be pulled out into meaningful variable names to avoid this.
+### Unnecessarily long conditions should be avoided. Conditions can be pulled out into meaningful variable names to avoid this.
 
   **Good, each check is clear and it's easy to follow the reasoning**
   ```lua
@@ -484,7 +484,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       -- do thing
   end
   ```
-- Lines should be around 110 characters long at the most
+### Lines should be around 110 characters long at the most
 
   **Good**
   ```lua
@@ -507,7 +507,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 - No trailing 0s, dont do `0.200` instead do `0.2`
 
 ##  Commenting
-- Do not add useless comments, good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
+### Do not add useless comments, good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
 
   **Good**
   ```lua
