@@ -222,6 +222,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   if a != b && !b then end
   ```
 - GMod style comments should never be used ( `/* */` and `//` )
+
   **Good**
   ```lua
   --[[
