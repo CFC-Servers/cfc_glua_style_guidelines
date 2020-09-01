@@ -58,7 +58,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local a = 3 -- This is also good
   
   -- Bad
-  --This comment is too close to the operator
+  --This comment doesn't have a space before it
   local a = 3-- This comment starts too close to the 3
   ```
 
@@ -115,13 +115,13 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 	print( a )
   end
   ```
-- Returns should have 1 newline before them unless the codeblock is only 1 line
+- Returns should have one newline before them unless the codeblock is only one line
   ```lua
   -- Good
   function test()
     local a = 3
 
-	return a
+    return a
   end
 
   function test2()
@@ -131,7 +131,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   -- Bad
   function test()
     local a = 3
-	return a
+    return a
   end
   ```
 - Code should be split into managable chunks using a single new line
@@ -158,7 +158,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
     return players
   end
 
-  -- Bad
+  -- Bad, far too dense and difficult to read at a glance
   function CFCNotifications.resolveFilter( filter )
     if type( filter ) == "Player" then
       filter = { filter }
@@ -185,7 +185,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   -- Bad
   if a != b && !b then end
   ```
-- GMod style comments should never be used `/* */` and `//`
+- GMod style comments should never be used ( `/* */` and `//` )
   ```lua
   -- Good
   --[[
@@ -193,7 +193,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ]]
   do( stuff ) -- Stuff being done
 
-  -- Bad
+  -- Bad, gmod comments aren't recognized by standard lua highlighting
   /*
     This line does stuff
   */
@@ -208,7 +208,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
     end
   end
 
-  -- Bad
+  -- Bad, garry's continue is a poor implementation that /might/ be prone to errors
   for k, v in pairs( tab ) do
     if not IsValid( v ) then continue end
     v:Remove()
@@ -229,11 +229,13 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   -- Good
   CATEGORY_NAME = "nothing"
+  local MAXIMUM_VALUE = 25
   
   -- Bad
   CategoryName = "nothing"
   categoryName = "nothing"
   category_name = "nothing"
+  local maximumValue = 25
   ```
 - Global variables should be written in PascalCase
   ```lua
@@ -244,7 +246,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   globalVariable = 20
   global_variable = 20
   ```
-- Methods for objects should be in PascalCase e.g. the Player and Entity classes
+- Methods for objects should be in PascalCase (e.g. the Player and Entity classes)
   ```lua
   -- Good
   function classTable:SetHealth( amount )
@@ -254,12 +256,12 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   function classTable:setHealth( amount )
   end
   ```
-- Where possible table keys should only contain a-z A-Z 0-9 and \_.  they should not start with 0-9.
+- Where possible, table keys should only contain `a-z A-Z 0-9` and `\_.`  they should not start with `0-9`.
   ```lua
   -- Good
   myTable.myValue = 4
 
-  -- Bad
+  -- Bad, accessing the table value requires brackets and quotes because of the hyphen
   myTable["my-value"] = 4
   ```
 - Only use `_` as a variable to "throwaway" values that will not be used
@@ -267,14 +269,16 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   -- Good
   for _, ply in pairs( player.GetAll() ) do
     local _, shouldKill = ply:GetKillData()
+
     if shouldKill then
       ply:Kill()
     end
   end
 
-  -- Bad
+  -- Bad, k isn't used
   for k, ply in pairs( player.GetAll() ) do
     local canKill, shouldKill = ply:GetKillData()
+
     if shouldKill then
       ply:Kill()
     end
@@ -288,10 +292,10 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
 ## general
 - When picking between `"`  and `'` you must be consistent across the entire project
   ```lua
-  -- Good
+  -- Good, quote usage is consistent
   myFunc( "hello ", "world!" )
 
-  -- Bad
+  -- Bad, different quotes are used interchangeably
   myFunc( "hello ", 'world!' )
   ```
 - Do not use redundant parentheses  
@@ -299,7 +303,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   -- Good
   if x == y then
 
-  -- Bad
+  -- Bad, these parenthesis are not necessary
   if (x == y) then
   ```
 
@@ -327,7 +331,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
     -- Do a bunch of real complicated things
   end
 
-  -- Bad
+  -- Bad, adds an extra level of indentation
   function test()
     if myThing then
       -- Do a bunch of real complicated things
@@ -343,19 +347,19 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
     return x > maxX
   end
 
-  -- Bad
+  -- Bad, the significance of "25" is unknown without a meaningful variable name
   function checkX( x )
     return x > 25
   end
   ```
 - Complex expressions should be written on multiple lines with meaningful variable names
   ```lua
-   -- Good
+   -- Good, each step of the equation is named and done individually. The math is easy to follow
   local widthModifier = amount * damageMult
   local age = 1 - lifetime / duration
   local width = widthModifier * age
 
-  -- Bad
+  -- Bad, this math is difficult to figure out from a glance
   local width = (amount * 5) * (1 - lifetime / duration)
 
 
@@ -381,7 +385,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 - Unnecessarilly long conditions should be avoided. Conditions can be pulled out into meaningful variable names to avoid this.
   ```lua
-  -- Good
+  -- Good, each check is clear and it's easy to follow the reasoning
   local entValid = Isvalid( ent )
   local entOwner = ent:GetCPPIOwner()
   local ownerVehicleIsVisible = entOwner:GetVehicle():GetColor().a > 0
@@ -391,7 +395,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
     -- doThing
   end
 
-  -- Bad
+  -- Bad, the conditions are difficult to follow and require some unpacking
   if IsValid( ent ) and ent:GetCPPIOwner():GetVehicle():GetColor().a > 0
     and ( ent:GetCPPIOwner():IsAdmin() or ent:GetCPPIOwner().canDoThing ) then
     -- do thing
@@ -406,17 +410,17 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
     ent:SetColor( color )
   end
 
-  -- Bad
+  -- Bad, this line is too long and could easily be split into multiple, easy-to-follow lines
   if IsValid( ent ) and ent:IsPlayer() and ent:IsAdmin() then ent:SetColor( HSVToColor( ( CurTime() * 10 ) % 360, 1, 1 ) ) ) end
   ```
 
 ## Numbers
 - Don't define numbers like this `.69` instead do `0.69`
-- No leading 0s dont do `0420` instead do `420`
-- No trailing 0s dont do `0.200` instead do `0.2`
+- No leading 0s, dont do `0420` instead do `420`
+- No trailing 0s, dont do `0.200` instead do `0.2`
 
 ##  Commenting
-- Do not add useless comments, good variable and function names can make comments unecessary. Strive for self commenting code.  
+- Do not add useless comments, good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
   ```lua
   -- Good
   for _, ply in pairs( players )
@@ -424,7 +428,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       if ply:Alive() then ply:Kill() end
   end
 
-  -- Bad
+  -- Bad, the code explains itself without comments
   for _, v in pairs( stuff ) -- loop through players
       print( v ) -- print the player
       if v:Alive() then v:Kill() end -- kill player if player is alive
