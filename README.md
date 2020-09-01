@@ -210,7 +210,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 
 # Gmod lua additions
-## Do not use GMod operators such as `&&` `||` `!` `!=`
+## Do not use GMod operators ( `&&` `||` `!` `!=` )
 
   **Good**
   ```lua
@@ -221,7 +221,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   if a != b && !b then end
   ```
-## GMod style comments should never be used ( `/* */` and `//` )
+## Do not use GMod style comments ( `/* */` and `//` )
 
   **Good**
   ```lua
@@ -311,7 +311,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   end
   ```
 ## Table keys
-### Where possible, table keys should only contain `a-z A-Z 0-9` and `\_.`  they should not start with `0-9`.
+### Table keys should only contain `a-z A-Z 0-9` and `\_.` they should not start with `0-9`
 
   **Good**
   ```lua
@@ -335,7 +335,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   end
   ```
 
-  **Bad, k isn't used**
+  **Bad, `k` isn't used**
   ```lua
   for k, ply in pairs( player.GetAll() ) do
       local canKill, shouldKill = ply:GetKillData()
@@ -351,7 +351,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   - Hook event names should be named as such `Organization_EventName`
 
 # General
-## When picking between `"`  and `'` you must be consistent across the entire project
+## Quotations
+### You may use single or double quotes, but be consistent
 
   **Good, quote usage is consistent**
   ```lua
