@@ -347,7 +347,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 ## Hook naming:
   - Hook identifiers should be named as such `Organization_AddonName_HookPurpose`
-  - The hook event name should not be included in the identifier
+  - The hook event name should not be included in the identifier.
+    As an example you should not do `ORG_MyAddon_OnDisconnect` or even `ORG_MyAddon_CleanupPropsOnDisconnect`. But`ORG_MyAddon_CleanupProps` would be appropriate. The "HookPurpose" should state what a function does without restating information provided by the event name.
   - Hook event names should be named as such `Organization_EventName`
 
 # General
