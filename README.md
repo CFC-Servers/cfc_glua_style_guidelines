@@ -2,6 +2,53 @@
 
 The official CFC approved Glua styling guidelines as used on most of our repositories.
 
+# Glossary
+ - [**Spacing**](#spacing)
+   - [Around operators](#spaces-around-operators)
+   - [Inside parenthesis](#spaces-inside-parentheses-and-curly-braces-if-they-contain-content)
+   - [After commas](#spaces-after-commas)
+   - [Indentation](#indentation-should-be-done-with-4-spaces)
+   - [Inside square brackets](#no-spaces-inside-square-brackets)
+   - [Comments](#single-space-after-comment-operators-and-before-if-not-at-start-of-line)
+
+ - [**Newlines**](#newlines)
+   - [Limits](#never-have-more-than-2-newlines)
+   - [Top-level blocks](#top-level-blocks-should-have-either-1-or-2-newlines-between-them)
+   - [Nested blocks](#non-top-level-blockslines-should-never-have-more-than-1-newline-between-them)
+   - [Returns](#returns-should-have-one-newline-before-them-unless-the-codeblock-is-only-one-line)
+   - [Chunking](#code-should-be-split-into-managable-chunks-using-a-single-new-line)
+
+ - [**GLua**](#gmod-lua-additions)
+   - [GMod Operators](#do-not-use-gmod-operators------)
+   - [GMod Comments](#do-not-use-gmod-style-comments----and--)
+   - [Continue](#the-use-of-continue-should-be-avoided-if-possible)
+
+ - [**Naming**](#naming-conventions)
+   - [Local variables and functions](#local-variables-and-functions-should-always-camelcase)
+   - [Constants](#constants-should-be-screaming_snake)
+   - [Globals](#global-variables-should-be-written-in-pascalcase)
+   - [Table keys](#table-keys)
+   - [Throwaway variable](#only-use-_-as-a-variable-to-throwaway-values-that-will-not-be-used)
+   - [Hooks](#hook-naming)
+
+ - [**General**](#general)
+   - [Quotations](#quotations)
+   - [Parentheses](#do-not-use-redundant-parentheses)
+   - [Multiline Tables](#multiline-tables)
+   - [Multiline functions](#multi-line-function-calls-should-be-written-similarly)
+   - [Magic numbers](#magic-numbers-should-be-pulled-out-into-meaningful-variables)
+   - [Complex expressions](#complex-expressions-should-be-written-on-multiple-lines-with-meaningful-variable-names)
+   - [Semicolons](#never-use-semicolons)
+   - [Constants](#make-use-of-existing-constants-where-possible)
+   - [Long Conditions](#unnecessarily-long-conditions-should-be-avoided)
+   - [Line length](#lines-should-be-around-110-characters-long-at-the-most)
+
+ - [**Numbers**](#numbers)
+ 
+ - [**Comments**](#comments)
+   - [Useless Comments](#do-not-add-useless-comments)
+ 
+
 #  Spacing
 ## Spaces around operators
 
@@ -507,11 +554,11 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 
 # Numbers
-- Don't define numbers like this `.69` instead do `0.69`
-- No leading 0s, dont do `0420` instead do `420`
-- No trailing 0s, dont do `0.200` instead do `0.2`
+- Don't define numbers like this `.69`, prefer `0.69`
+- No leading 0s, dont do `0420`, prefer `420`
+- No trailing 0s, dont do `0.200`, prefer `0.2`
 
-#  Commenting
+#  Comments
 ## Do not add useless comments
 ### Good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
 
