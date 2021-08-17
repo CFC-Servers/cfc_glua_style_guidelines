@@ -264,7 +264,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   if a ~= b and not b then end
   ```
 
-  **Bad**
+  **Bad, Garry's operators aren't recognized by standard Lua highlighting**
   ```lua
   if a != b && !b then end
   ```
@@ -278,7 +278,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   do( stuff ) -- Stuff being done
   ```
 
-  **Bad, gmod comments aren't recognized by standard lua highlighting**
+  **Bad, gmod comments aren't recognized by standard Lua highlighting**
   ```lua
   /*
     This line does stuff
@@ -296,7 +296,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   end
   ```
 
-  **Bad, garry's `continue` is a poor implementation that /might/ be prone to errors**
+  **Bad, garry's `continue` is a poor implementation that [/might/ be prone to errors](https://wiki.facepunch.com/gmod/Specific_Operators)**
   ```lua
   for k, v in pairs( tab ) do
       if not IsValid( v ) then continue end
@@ -305,7 +305,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```
 
 # Naming conventions
-## Local variables and functions should always camelCase
+## Local variables and functions should always be written in camelCase
 
   **Good**
   ```lua
@@ -317,7 +317,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   local MyVariable = 10
   local my_variable = 20
   ```
-## Constants should be SCREAMING_SNAKE
+## Constants should be written in SCREAMING_SNAKE
 
   **Good**
   ```lua
@@ -344,7 +344,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   globalVariable = 20
   global_variable = 20
   ```
-## Methods for objects should be in PascalCase
+## Methods for objects should be written in PascalCase
 
   **Good**
   ```lua
@@ -369,7 +369,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   myTable["my-value"] = 4
   ```
-## Only use `_` as a variable to "throwaway" values that will not be used
+## Use `_` as a variable to "throwaway" values that will not be used
 
   **Good**
   ```lua
@@ -458,7 +458,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       end
   end
   ```
-## Magic numbers should be pulled out into meaningful variables
+## "Magic numbers" should be pulled out into meaningful variables
 
   **Good**
   ```lua
@@ -494,22 +494,25 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   local a = 3
   print( a )
+
+  return a
   ```
 
-  **Bad**
+  **Bad**, this exclusively makes the code harder to read**
   ```lua
-  local a = 3; print( a )
+  local a = 3; print( a );
+
+  return a;
   ```
 ## Make use of existing constants where possible
 
   **Good**
   ```lua
-  -- Good
   x = y * math.pi
   radians = math.rad( deg )
   ```
 
-  **Bad**
+  **Bad**, the meaning of `3.142` may not be immediately clear. It also suffers a loss in precision compared to `math.pi`**
   ```lua
   x = y * 3.142
   radians = deg * ( 3.142 / 180 )
@@ -537,6 +540,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   end
   ```
 ## Lines should be around 110 characters long at the most
+### This isn't a hard limit, there are plenty of valid exceptions
 
   **Good**
   ```lua
