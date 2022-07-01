@@ -3,6 +3,9 @@
 The official CFC approved Glua styling guidelines as used on most of our repositories.
 
 # Glossary
+ - [**Tooling**](#tooling)
+   - [GLuaLint](#glualint)
+
  - [**Spacing**](#spacing)
    - [Around operators](#spaces-around-operators)
    - [Inside parenthesis](#spaces-inside-parentheses-and-curly-braces-if-they-contain-content)
@@ -47,7 +50,18 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
  
  - [**Comments**](#comments)
    - [Useless Comments](#do-not-add-useless-comments)
- 
+
+---
+
+# Tooling
+## GLuaLint
+Use GLuaLint (GLuaFixer) as your linter. There are plugins available for most major editors.
+
+GLuaFixer: https://github.com/FPtje/GLuaFixer
+
+Use CFC's GLuaFixer config, found here: https://gist.github.com/brandonsturgeon/7b7655e25a33c074a1f33b88d8ce3ac6
+
+---
 
 #  Spacing
 ## Spaces around operators
@@ -126,6 +140,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   --This comment doesn't have a space before it
   local a = 3-- This comment starts too close to the 3
   ```
+
+---
 
 # Newlines
 ## Never have more than 2 newlines
@@ -256,6 +272,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   end
   ```
 
+---
+
 # Gmod lua additions
 ## Do not use GMod operators ( `&&` `||` `!` `!=` )
 
@@ -303,6 +321,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
       v:Remove()
   end
   ```
+
+---
 
 # Naming conventions
 ## Local variables and functions should always be written in camelCase
@@ -397,6 +417,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   - The hook event name should not be included in the identifier.
     For example, you should not do `ORG_MyAddon_OnDisconnect` or even `ORG_MyAddon_CleanupPropsOnDisconnect`. But`ORG_MyAddon_CleanupProps` would be appropriate. The "HookPurpose" should state what a function does without restating information provided by the event name.
   - Hook event names should be named as such `Organization_EventName`
+
+---
 
 # General
 ## Quotations
@@ -556,6 +578,8 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
   ```lua
   if IsValid( ent ) and ent:IsPlayer() and ent:IsAdmin() then ent:SetColor( HSVToColor( ( CurTime() * 10 ) % 360, 1, 1 ) ) ) end
   ```
+
+---
 
 # Numbers
 - Don't define numbers like this `.69`, prefer `0.69`
