@@ -59,7 +59,7 @@ Use GLuaLint (GLuaFixer) as your linter. There are plugins available for most ma
 
 GLuaFixer: https://github.com/FPtje/GLuaFixer
 
-Use CFC's GLuaFixer config, found here: https://gist.github.com/brandonsturgeon/7b7655e25a33c074a1f33b88d8ce3ac6
+Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualint.json
 
 ---
 
