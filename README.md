@@ -314,11 +314,25 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   end
   ```
 
-  **Bad, garry's `continue` is a poor implementation that [/might/ be prone to errors](https://wiki.facepunch.com/gmod/Specific_Operators)**
+  **Bad, garry's `continue` is a flawed implementation that [is prone to errors when used in repeat-until loops](https://wiki.facepunch.com/gmod/Specific_Operators)**
   ```lua
   for k, v in pairs( tab ) do
       if not IsValid( v ) then continue end
       v:Remove()
+  end
+  ```
+  
+  If your condition is more complicated, consider deferring the logic to another function
+  ```lua
+  local function processItem( item )
+      if not IsValid( item ) then return end
+      if not item:IsReady() then return end
+      
+      item:Process()
+  end
+  
+  for _, item in ipairs( tab ) do
+      processItem( item )
   end
   ```
 
