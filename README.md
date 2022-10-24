@@ -447,7 +447,7 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   ```lua
   myFunc( "hello ", 'world!' )
   ```
-## Do not use redundant parentheses
+## Do not use redundant parenthesis
 
   **Good**
   ```lua
@@ -456,24 +456,54 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
 
   **Bad, these parenthesis are not necessary**
   ```lua
-  if (x == y) then
+  if ( x == y ) then
+  ```
+### Redundant parenthesis may be used if it makes the order of operations clear. The author should use their best judgement
+  It's important for the author to remember who their target audience is. Not every reader will be good with maths, and it can be helpful to make equations easy to follow
+
+  **Acceptable**
+  ```lua
+  local amount = ( quantity * modifier ) + baseAmount
+  ```
+  
+  **Unsavory, but fine**
+  ```lua
+  local amount = quantity * modifier + baseAmount
   ```
 
 ## Multiline tables
-### Elements should begin on the next line and the last line should contain only a closing bracket. Elements inside should be indented once.
+### Elements should begin on the next line and the last line should contain only a closing bracket. Elements inside should be indented once
+  **Good**
   ```lua
   tbl = {
       key = x,
-      key2 = y
+      otherKey = y
   }
   ```
-## Multi line function calls should be written similarly
+  
+  **Bad, this indentation is inconsistent and can make it difficult for the reader to parse**
+  ```lua
+  tbl = {
+      key = x,
+      otherKey = y
+  }
+  ```
+
+## Multiline function calls
+### Multiline function calls should follow the same guidelines as Multiline tables
+  **Good**
   ```lua
   myFunc(
       "First arg",
       secondArg,
       { third, arg }
   )
+  ```
+  
+  **Bad, this indentation is inconsistent and objectively wrong**
+  ```lua
+  myFunc( "First arg",
+      secondArg, { third, arg } )
   ```
 ## Return early from functions
 
@@ -525,6 +555,7 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   local width = (amount * 5) * (1 - lifetime / duration)
   ```
 ## Never use semicolons
+### Semicolons provide no functional value in Lua. While they can be used to delimit table items, a comma is preferred
 
   **Good**
   ```lua
@@ -553,8 +584,8 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   x = y * 3.142
   radians = deg * ( 3.142 / 180 )
   ```
-## Unnecessarily long conditions should be avoided.
-### Conditions can be pulled out into meaningful variable names to avoid this.
+## Unnecessarily long conditions should be avoided
+### Conditions can be pulled out into meaningful variable names to avoid this
 
   **Good, each check is clear and it's easy to follow the reasoning**
   ```lua
@@ -596,13 +627,50 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
 ---
 
 # Numbers
-- Don't define numbers like this `.69`, prefer `0.69`
-- No leading 0s, dont do `0420`, prefer `420`
-- No trailing 0s, dont do `0.200`, prefer `0.2`
+## Prefer decimals with leading 0s
+### While you can omit a zero in decimals in the range of 0-1, it's an antipattern and a one-off exception when compared to decimals outside of said range
+
+**Good**
+```lua
+local num = 0.69
+```
+
+**Bad, while the 0 is implied, it can make it harder to parse at a glance**
+```lua
+local num = .69
+```
+
+## Prefer whole numbers without leading 0s
+### Lua numbers can technically be prefixed with as many 0s as you'd like, but in most cases it's completely unnecessary
+
+**Good**
+```lua
+local factor = 420
+```
+
+**Bad, just why?**
+```lua
+local factor = 00420
+```
+
+## Prefer decimals with no trailing 0s
+### Except in cases where the trailing 0s make it easier to understand the values (e.g. when you have a column of configurable decimals with varying precision), there is no reason to include them and could confuse the reader
+
+**Good**
+```lua
+local decimal = 0.2
+```
+
+**Bad**
+```lua
+local decimal = 0.200
+```
+
+---
 
 #  Comments
 ## Do not add useless comments
-### Good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own.
+### Good variable and function names can make comments unecessary. Strive for self commenting code. Save comments for complicated code that may not be clear on its own
 
   **Good**
   ```lua
