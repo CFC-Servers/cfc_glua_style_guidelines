@@ -38,7 +38,7 @@ The official CFC approved Glua styling guidelines as used on most of our reposit
    - [Quotations](#quotations)
    - [Parentheses](#do-not-use-redundant-parentheses)
    - [Multiline Tables](#multiline-tables)
-   - [Multiline functions](#multi-line-function-calls-should-be-written-similarly)
+   - [Multiline Function calls](#multiline-function-calls)
    - [Magic numbers](#magic-numbers-should-be-pulled-out-into-meaningful-variables)
    - [Complex expressions](#complex-expressions-should-be-written-on-multiple-lines-with-meaningful-variable-names)
    - [Semicolons](#never-use-semicolons)
