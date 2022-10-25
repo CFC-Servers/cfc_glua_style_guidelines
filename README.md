@@ -552,7 +552,7 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
 
   **Bad, this math is difficult to figure out from a glance**
   ```lua
-  local width = (amount * 5) * (1 - lifetime / duration)
+  local width = ( amount * 5 ) * ( 1 - lifetime / duration )
   ```
 ## Never use semicolons
 ### Semicolons provide no functional value in Lua. While they can be used to delimit table items, a comma is preferred
@@ -565,7 +565,7 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   return a
   ```
 
-  **Bad**, this exclusively makes the code harder to read**
+  **Bad, this exclusively makes the code harder to read**
   ```lua
   local a = 3; print( a );
 
