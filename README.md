@@ -476,17 +476,17 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   **Good**
   ```lua
   tbl = {
-      key = x,
-      otherKey = y
+      v1 = c,
+      v2 = d,
+      v3 = k,
+      v4 = j,
+      v5 = y
   }
   ```
   
   **Bad, this indentation is inconsistent and can make it difficult for the reader to parse**
   ```lua
-  tbl = {
-      key = x,
-      otherKey = y
-  }
+  tbl = { v1 = c, v2 = d, v3 = k, v4 = j, v5 = y }
   ```
 
 ## Multiline function calls
