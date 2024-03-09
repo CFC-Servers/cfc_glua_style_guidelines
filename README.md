@@ -674,7 +674,7 @@ local decimal = 0.200
 
   **Good**
   ```lua
-  for _, ply in pairs( players )
+  for _, ply in pairs( players ) do
       print( ply )
       if ply:Alive() then ply:Kill() end
   end
@@ -682,7 +682,7 @@ local decimal = 0.200
 
   **Bad, the code explains itself without comments**
   ```lua
-  for _, v in pairs( stuff ) -- loop through players
+  for _, v in pairs( stuff ) do -- loop through players
       print( v ) -- print the player
       if v:Alive() then v:Kill() end -- kill player if player is alive
   end
