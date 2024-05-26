@@ -6,7 +6,7 @@ A set of guidelines to help keep your GLua code Clean and Cool 😎
 
 #### If you're a CFC Member or Contributor
 This is a set of rules we ask you to follow in our repos.
-Your PR will be blocked if you add code that doesn't meet the style guidelines.
+Your PR will be automatically blocked if you add code that doesn't meet the style guidelines.
 
 #### If you're not part of CFC
 Use these however you want! This is a set of guidelines that we believe helps keep your code maintainable and share-able.
