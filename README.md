@@ -62,6 +62,8 @@ The most important thing by far is **consistency**. If you decide to use or igno
  
  - [**Comments**](#comments)
    - [Useless Comments](#do-not-add-useless-comments)
+ - [**General Practices**](#general-practices)
+   - [Unnecessary `IsValid`](#avoid-unnecessary-isvalidisvalid-checks)
 
 ---
 
