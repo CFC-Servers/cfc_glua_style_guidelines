@@ -699,3 +699,40 @@ local decimal = 0.200
       if v:Alive() then v:Kill() end -- kill player if player is alive
   end
   ```
+
+--
+
+# General Practices
+## Avoid unnecessary `IsValid`/`:IsValid()` checks
+### While these functions are relatively low-cost on their own, they still add overhead in places where it may not be necessary
+Developers have been conditioned to pepper these checks anywhere-and-everywhere to avoid `Attempt to index NULL` errors.
+If you know an Entity can become `NULL`, first try to remedy the underlying issue that causes it. Only rely on `IsValid` if the situation is outside of your control (i.e. delayed timer actions).
+
+
+**Good, IsValid is only used in pieces of code that we can't avoid, and isn't used in places that add no value**
+```lua
+net.Receive( "my_net_message", function( _, ply )
+    -- No IsValid check is needed here, Players cannot become invalid at this point
+    ply:ChatPrint( "Starting the process now..." )
+    local steamID64 = ply:SteamID64()
+
+    timer.Create( "delayed_action_" .. steamID64, 5, 1, function()
+        -- IsValid check is required here because the Player may have disconnected before this timer triggers
+        if not IsValid( ply ) then return end
+        ply:DoAction()
+
+        timer.Create( "delayed_action_step2_" .. steamID64, 5, 1, function()
+            -- No IsValid check is needed here because we already saved the data we need from their Player object
+            Database:UpdatePlayer( steamID64, true )
+        end )
+    end )
+end )
+```
+
+**Bad, IsValid is used in a hook where it's impossible for the Player to have become invalid**
+```lua
+hook.Add( "PlayerCanSuicide", "check_suicide", function( ply )
+    if not IsValid( ply ) then return end
+    if ply:IsAdminFrozen() then return false end
+end )
+```
