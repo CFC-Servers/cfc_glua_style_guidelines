@@ -500,9 +500,15 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   }
   ```
   
-  **Bad, this indentation is inconsistent and can make it difficult for the reader to parse**
+  **Fine, if both the keys and values are short, it's acceptable to keep them in one line**
   ```lua
   tbl = { v1 = c, v2 = d, v3 = k, v4 = j, v5 = y }
+  ```
+
+  **Bad, the indentation is inconsistent**
+  ```lua
+  tbl = { v1 = v, v2 = d,
+      v3 = k, v4 = j }
   ```
 
 ## Multiline function calls
@@ -516,7 +522,7 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   )
   ```
   
-  **Bad, this indentation is inconsistent and objectively wrong**
+  **Bad, this indentation is inconsistent (and objectively wrong)**
   ```lua
   myFunc( "First arg",
       secondArg, { third, arg } )
@@ -532,7 +538,7 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   end
   ```
 
-  **Bad, adds an extra level of indentation**
+  **Bad, adds an extra level of indentation for no reason**
   ```lua
   function test()
       if myThing then
@@ -595,7 +601,7 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   radians = math.rad( deg )
   ```
 
-  **Bad**, the meaning of `3.142` may not be immediately clear. It also suffers a loss in precision compared to `math.pi`**
+  **Bad**, the meaning of `3.142` may not be immediately clear. It also suffers a loss in precision compared to `math.pi`
   ```lua
   x = y * 3.142
   radians = deg * ( 3.142 / 180 )
@@ -605,8 +611,8 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
 
   **Good, each check is clear and it's easy to follow the reasoning**
   ```lua
-  local entValid = Isvalid( ent )
-  local entOwner = ent:GetCPPIOwner()
+  local entValid = IsValid( ent )
+  local entOwner = ent:CPPIGetOwner()
   local ownerVehicleIsVisible = entOwner:GetVehicle():GetColor().a > 0
   local ownerCapable = entOwner:IsAdmin() or entOwner.canDoThing
 
@@ -615,10 +621,10 @@ Use CFC's GLuaFixer config, found here: https://cfc.gg/configs/gluafixer/glualin
   end
   ```
 
-  **Bad, the conditions are difficult to follow and require some unpacking**
+  **Bad, the conditions are difficult to follow**
   ```lua
   if IsValid( ent ) and ent:GetCPPIOwner():GetVehicle():GetColor().a > 0
-    and ( ent:GetCPPIOwner():IsAdmin() or ent:GetCPPIOwner().canDoThing ) then
+    and ( ent:CPPIGetOwner():IsAdmin() or ent:GetCPPIOwner().canDoThing ) then
       -- do thing
   end
   ```
