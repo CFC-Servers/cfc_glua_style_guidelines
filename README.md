@@ -4,15 +4,17 @@ A set of guidelines to help keep your GLua code Clean and Cool 😎
 
 ---
 
-#### If you're a CFC Member or Contributor
-This is a set of rules we ask you to follow in our repos.
-Your PR will be automatically blocked if you add code that doesn't meet the style guidelines.
+:construction_worker: For CFC Members and Contributors
 
-#### If you're not part of CFC
-Use these however you want! This is a set of guidelines that we believe helps keep your code maintainable and share-able.
+Please adhere to these rules in our repositories. Your PR will be automatically blocked if it does not meet the style guidelines.
 
-If you don't like some of the guidlines, that's fine!
-The most important thing by far is **consistency**. If you decide to use or ignore some rules, be sure you do that **everywhere** in your code 👍
+:cowboy_hat_face: For Non-CFC Members
+
+Feel free to use these guidelines as you see fit! We believe they help maintain and share code effectively.
+
+If you disagree with some guidelines, that's okay! The most important principle is **consistency**. If you choose to follow or ignore certain rules, ensure you do so **consistently** throughout your code. 👍
+
+---
 
 # Glossary
  - [**Tooling**](#tooling)
