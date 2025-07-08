@@ -710,7 +710,7 @@ local decimal = 0.200
   end
   ```
 
---
+---
 
 # General Practices
 ## Avoid unnecessary `IsValid`/`:IsValid()` checks
@@ -745,4 +745,85 @@ hook.Add( "PlayerCanSuicide", "check_suicide", function( ply )
     if not IsValid( ply ) then return end
     if ply:IsAdminFrozen() then return false end
 end )
+```
+
+<br>
+
+## Use varargs when calling `print` with multiple values
+### `print` accepts any number of varargs, and the values will be automatically spaced out and coerced into strings
+
+**Bad, uses a lot of string concatenation and many `tostring` calls, difficult to read at a glance**
+```lua
+local function botDebugInfo( bot )
+    print( tostring( bot ) .. "  Health: " .. bot:Health() .. " Pos: " .. tostring( bot:GetPos() ) .. " Alive: " .. tostring( bot:Alive() ) .. " Weapon: " .. tostring( bot:GetActiveWeapon() ) .. " Value: " .. tostring( bot:GetNW2Var( "test", nil ) ) )
+end
+```
+
+**Good, uses `print`'s vararg feature with string casting and auto-spacing**
+
+As an added benefit, it's also able to be split by newlines for easier reading
+```lua
+local function botDebugInfo( bot )
+    print(
+        bot,
+        "Health:", bot:Health(),
+        "Pos:", bot:GetPos(),
+        "Alive:", bot:Alive(),
+        "Weapon:", bot:GetActiveWeapon(),
+        "Value:", bot:GetNW2Var( "test" )
+    )
+end
+```
+
+> [!WARNING]  
+> The only downside to printing this way is that a tab character is inserted between each entry.
+> This is fine if you're only printing a couple of values, but can get difficult to follow if you're printing multiple values.
+>
+> <details>
+> <summary>You can mitigate this issue by using spacer characters:</summary>
+> <br>
+> 
+> ```lua
+> local function botDebugInfo( bot )
+>    print(
+>        bot,
+>        "Health:", bot:Health(), "|",
+>        "Pos:", bot:GetPos(), "|",
+>        "Alive:", bot:Alive(), "|",
+>        "Weapon:", bot:GetActiveWeapon(), "|"
+>        "Value:", bot:GetNW2Var( "test" )
+>    )
+> end
+> ```
+>
+> With spacers:
+> ```
+> Player [1][Bot01]   Health:     100 |   Pos:        -642.174744 445.843323 -151.074295  |   Alive:      true        |   Weapon:     Weapon [193][weapon_crowbar]        |   Value:      nil
+> ```
+>
+> Without spacers:
+> ```
+> Player [1][Bot01]   Health:     100 Pos:        -5225.150391 1630.958984 -95.968750 Alive:      true        Weapon:     Weapon [193][weapon_crowbar]        Value:      nil
+> ```
+> </details>
+
+<br>
+
+## Avoid using `tostring` on numbers when concatenating
+### When concatenating a number to a string, the number is automatically coerced into a string
+
+**Good, relies on the built-in feature of Lua string concatenation**
+```lua
+for i = 1, #lines do
+    local line = lines[i]
+    print( "Line #" .. i, line )
+end
+```
+
+**Bad, `tostring` simply isn't necessary when you're 100% sure that the value is a number**
+```lua
+for i = 1, #lines do
+    local line = lines[i]
+    print( "Line #" .. tostring( i ), line )
+end
 ```
